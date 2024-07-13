@@ -1,5 +1,5 @@
 import { CustomOptions, buildCustom } from "./custom";
-import { ERC20Options, buildERC20 } from "./hooks/erc20";
+import { ERC20Options, buildERC20 } from "./hooks/hook";
 import { ERC721Options, buildERC721 } from "./erc721";
 import { ERC1155Options, buildERC1155 } from "./erc1155";
 import { GovernorOptions, buildGovernor } from "./governor";

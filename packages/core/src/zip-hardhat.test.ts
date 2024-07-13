@@ -2,7 +2,7 @@ import _test, { TestFn, ExecutionContext } from "ava";
 
 import { zipHardhat } from "./zip-hardhat";
 
-import { buildERC20 } from "./hooks/erc20";
+import { buildERC20 } from "./hooks/hook";
 import { buildERC721 } from "./erc721";
 import { buildERC1155 } from "./erc1155";
 import { buildCustom } from "./custom";

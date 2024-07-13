@@ -4,7 +4,7 @@ import {
   defaults as erc20defaults,
   isAccessControlRequired as erc20IsAccessControlRequired,
   ERC20Options,
-} from "./hooks/erc20";
+} from "./hooks/hook";
 import {
   printERC721,
   defaults as erc721defaults,

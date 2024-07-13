@@ -1,6 +1,6 @@
 import { BaseFunction, ContractBuilder } from "../contract";
 import { BaseHook } from "./baseHook";
-import { ERC20Options } from "./erc20";
+import { ERC20Options } from "./hook";
 import { functions } from "./functions";
 import { getBaseHookPermissions, hookPermissions } from "./hookPermissions";
 const Whitelist = {

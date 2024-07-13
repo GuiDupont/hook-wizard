@@ -1,7 +1,7 @@
 import test from "ava";
 import { erc20 } from ".";
 
-import { buildERC20, ERC20Options } from "./hooks/erc20";
+import { buildERC20, ERC20Options } from "./hooks/hook";
 import { printContract } from "./print";
 
 function testERC20(title: string, opts: Partial<ERC20Options>) {

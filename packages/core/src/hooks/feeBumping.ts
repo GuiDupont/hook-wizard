@@ -1,5 +1,5 @@
 import { BaseFunction, ContractBuilder } from "../contract";
-import { ERC20Options } from "./erc20";
+import { ERC20Options } from "./hook";
 import { getBaseHookPermissions, hookPermissions } from "./hookPermissions";
 import { functions } from "./functions";
 import { BaseHook } from "./baseHook";
