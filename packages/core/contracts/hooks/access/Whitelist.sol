@@ -7,7 +7,7 @@ import {BaseHook, LPFeeLibrary, Hooks, IPoolManager, PoolKey, PoolId, PoolIdLibr
 error OnlyOwner();
 error OnlyWhitelistedUsers();
 
-contract Whitelist is BaseHook {
+abstract contract Whitelist is BaseHook {
     using PoolIdLibrary for PoolKey;
 
     mapping(address => bool) public whitelist;
@@ -17,10 +17,6 @@ contract Whitelist is BaseHook {
     // state variables should typically be unique to a pool
     // a single hook contract should be able to service multiple pools
     // ---------------------------------------------------------------
-
-    constructor(IPoolManager _poolManager) BaseHook(_poolManager) {
-        owner = msg.sender;
-    }
 
     function addToWhitelist(address _address) external {
         if (msg.sender != owner) revert OnlyOwner();
@@ -35,6 +31,7 @@ contract Whitelist is BaseHook {
     function getHookPermissions()
         public
         pure
+        virtual
         override
         returns (Hooks.Permissions memory)
     {
@@ -63,10 +60,10 @@ contract Whitelist is BaseHook {
 
     function beforeSwap(
         address,
-        PoolKey calldata,
-        IPoolManager.SwapParams calldata,
+        PoolKey memory,
+        IPoolManager.SwapParams memory,
         bytes calldata hookData
-    ) external view virtual override returns (bytes4, BeforeSwapDelta, uint24) {
+    ) public view virtual override returns (bytes4, BeforeSwapDelta, uint24) {
         address user = abi.decode(hookData, (address));
         if (whitelist[user] == false) revert OnlyWhitelistedUsers();
         return (
@@ -78,10 +75,10 @@ contract Whitelist is BaseHook {
 
     function beforeInitialize(
         address,
-        PoolKey calldata,
+        PoolKey memory,
         uint160,
         bytes calldata hookData
-    ) external override returns (bytes4) {
+    ) public virtual override returns (bytes4) {
         owner = abi.decode(hookData, (address));
         return (BaseHook.beforeInitialize.selector);
     }

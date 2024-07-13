@@ -24,9 +24,8 @@ abstract contract BumpingFee is BaseHook {
 
     uint256 public constant FIXED_HOOK_FEE = 1;
 
-    constructor(IPoolManager _poolManager) BaseHook(_poolManager) {
-        startTimestamp = block.timestamp;
-    }
+    // constructor(IPoolManager _poolManager) BaseHook(_poolManager) {
+    // }
 
     function getHookPermissions()
         public

@@ -1,4 +1,4 @@
-import type { ERC20Options } from "../erc20";
+import type { ERC20Options } from "../hooks/erc20";
 import { accessOptions } from "../set-access-control";
 import { clockModeOptions } from "../set-clock-mode";
 import { infoOptions } from "../set-info";

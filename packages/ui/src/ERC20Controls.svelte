@@ -2,7 +2,7 @@
   import HelpTooltip from './HelpTooltip.svelte';
 
   import type { KindedOptions } from '@openzeppelin/wizard';
-  import { erc20, premintPattern, infoDefaults } from '@openzeppelin/wizard';
+  import { erc20, infoDefaults } from '@openzeppelin/wizard';
 
 
   export let opts: Required<KindedOptions['ERC20']> = {
@@ -43,8 +43,8 @@
   <h1>Fees</h1>
 
   <div class="checkbox-group">
-    <label class:checked={opts.mintable}>
-      <input type="checkbox" bind:checked={opts.mintable}>
+    <label class:checked={opts.bumpingFeeHook}>
+      <input type="checkbox" bind:checked={opts.bumpingFeeHook}>
       Bumping fees
       <HelpTooltip>
         Fee will decrease until a certain threshold is reached. 
@@ -57,28 +57,14 @@
 
 <section class="controls-section">
   <h1>Acces</h1>
-
-  <div class="checkbox-group">
-    <label class:checked={opts.mintable}>
-      <input type="checkbox" bind:checked={opts.whitelist}>
-      Lp whitelist
-      <HelpTooltip>
-        Limit access to provide liquidity to a limited set of address.
-      </HelpTooltip>
-    </label>
-
-   
-  </div>
    <div class="checkbox-group">
-    <label class:checked={opts.mintable}>
-      <input type="checkbox" bind:checked={opts.mintable}>
+    <label class:checked={opts.whitelistHook}>
+      <input type="checkbox" bind:checked={opts.whitelistHook}>
       Swapper whitelist
       <HelpTooltip>
         Limit access to swap liquidity to a limited set of address.
       </HelpTooltip>
     </label>
-
-   
   </div>
 </section>
 
