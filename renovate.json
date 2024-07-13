@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "github>OpenZeppelin/configs"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePrefixes": ["@openzeppelin/"],
+      "schedule": ["at any time"],
+      "rangeStrategy": "update-lockfile"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  push:
+    branches: [master]
+  pull_request: {}
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        package:
+          - core
+          - core-cairo
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+      - name: Install Foundry
+        if: matrix.package == 'core'
+        uses: foundry-rs/foundry-toolchain@v1
+      - name: Install dependencies
+        run: yarn install
+      - name: Compile TypeScript
+        run: yarn tsc
+        working-directory: packages/${{matrix.package}}
+      - name: Check Svelte
+        run: yarn svelte-check
+        working-directory: packages/ui
+      - name: Run tests
+        run: yarn test
+        working-directory: packages/${{matrix.package}}

@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "prepare": "wsrun -m prepare"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@types/*",
+      "**/typescript"
+    ]
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-foundry": "^1.1.2",
+    "wsrun": "^5.2.4"
+  },
+  "dependencies": {
+    "@uniswaphooks/v4-core-unofficial": "^1.0.0"
+  }
+}
