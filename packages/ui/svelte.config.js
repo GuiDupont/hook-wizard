@@ -1,5 +1,5 @@
-const sveltePreprocess = require('svelte-preprocess');
-
+const sveltePreprocess = require("svelte-preprocess");
+import adapter from "@sveltejs/adapter-vercel";
 const production = !process.env.ROLLUP_WATCH;
 
 module.exports = {
@@ -7,6 +7,9 @@ module.exports = {
     sourceMap: !production,
     postcss: true,
   }),
+  kit: {
+    adapter: adapter(),
+  },
   compilerOptions: {
     dev: !production,
   },

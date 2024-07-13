@@ -159,28 +159,12 @@
         <button class:selected={tab === 'ERC20'} on:click={() => tab = 'ERC20'}>
           Hook
         </button>
-        <!-- <button class:selected={tab === 'ERC721'} on:click={() => tab = 'ERC721'}>
-          ERC721
-        </button>
-        <button class:selected={tab === 'ERC1155'} on:click={() => tab = 'ERC1155'}>
-          ERC1155
-        </button>
-        <button class:selected={tab === 'Governor'} on:click={() => tab = 'Governor'}>
-          Governor
-        </button>
-        <button class:selected={tab === 'Custom'} on:click={() => tab = 'Custom'}>
-          Custom
-        </button> -->
+       
       </OverflowMenu>
     </div>
 
     <div class="action flex flex-row gap-2 shrink-0">
-      <a href="https://docs.openzeppelin.com/defender/v2/tutorial/deploy?utm_campaign=Defender%20GA_2024&utm_source=Wizard#environment_setup" target="_blank" rel="noopener noreferrer">
-        <button class="action-button min-w-[165px]">
-          <OzIcon />
-          Deploy with Defender
-        </button>
-      </a>
+    
 
       <button class="action-button min-w-[165px]" on:click={copyHandler}>
         {#if copied}

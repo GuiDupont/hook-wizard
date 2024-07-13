@@ -36,6 +36,7 @@
     "typescript": "^4.9.0"
   },
   "dependencies": {
+    "@sveltejs/adapter-vercel": "^5.4.1",
     "@uniswaphooks/v4-core-unofficial": "^1.0.0",
     "file-saver": "^2.0.5",
     "highlight.js": "^11.0.0",
